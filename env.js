@@ -35,11 +35,11 @@ require('dotenv').config({
 
 // TODO: Replace these values with your own
 
-const BUNDLE_ID = 'com.split-video-app'; // ios bundle id
-const PACKAGE = 'com.split-video-app'; // android package name
+const BUNDLE_ID = 'com.mustpe.splitvideoapp'; // ios bundle id
+const PACKAGE = 'com.mustpe.splitvideoapp'; // android package name
 const NAME = 'split-video-app'; // app name
-const EXPO_ACCOUNT_OWNER = 'expo-owner'; // expo account owner
-const EAS_PROJECT_ID = 'c3e1075b-6fe7-4686-aa49-35b46a229044'; // eas project id
+const EXPO_ACCOUNT_OWNER = 'mustpe'; // expo account owner
+const EAS_PROJECT_ID = 'aa68a3ea-5ed7-4bb1-b593-e01d3b75817d'; // eas project id
 const SCHEME = 'split-video-app'; // app scheme
 
 /**
