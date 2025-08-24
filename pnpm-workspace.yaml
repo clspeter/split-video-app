@@ -1,0 +1,2 @@
+patchedDependencies:
+  ffmpeg-kit-react-native: patches/ffmpeg-kit-react-native.patch

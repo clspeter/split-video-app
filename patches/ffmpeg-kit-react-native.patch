@@ -1,0 +1,51 @@
+diff --git a/android/build.gradle b/android/build.gradle
+index 2909280ab1fa30840204409dc12d6405722aa714..6ea79621abc8ccee458bb3edb3930c206c4885fd 100644
+--- a/android/build.gradle
++++ b/android/build.gradle
+@@ -125,5 +125,32 @@ repositories {
+ 
+ dependencies {
+   api 'com.facebook.react:react-native:+'
+-  implementation 'com.arthenica:ffmpeg-kit-' + safePackageName(safeExtGet('ffmpegKitPackage', 'https')) + ':' + safePackageVersion(safeExtGet('ffmpegKitPackage', 'https'))
++  implementation(name: 'ffmpeg-kit-full-gpl', ext: 'aar')
++  implementation 'com.arthenica:smart-exception-java:0.2.1'
++}
++
++// Ensure proper task dependencies for AAR file
++afterEvaluate {
++  tasks.matching { task ->
++    task.name.contains('lint') || task.name.contains('Lint')
++  }.configureEach { task ->
++    if (project.findProject(':app')) {
++      def downloadAarTask = project.findProject(':app').tasks.findByName('downloadAar')
++      if (downloadAarTask) {
++        task.dependsOn(downloadAarTask)
++      }
++    }
++  }
++  
++  // Also ensure preBuild and compile tasks depend on downloadAar
++  tasks.matching { task ->
++    task.name.startsWith('compile') || task.name.contains('preBuild')
++  }.configureEach { task ->
++    if (project.findProject(':app')) {
++      def downloadAarTask = project.findProject(':app').tasks.findByName('downloadAar')
++      if (downloadAarTask) {
++        task.dependsOn(downloadAarTask)
++      }
++    }
++  }
+ }
+diff --git a/ffmpeg-kit-react-native.podspec b/ffmpeg-kit-react-native.podspec
+index 889d3e8f308f94a338869afedc8c25d8b1ebb53a..a265d7a074054a1b3f66f43117f8db561f05a589 100644
+--- a/ffmpeg-kit-react-native.podspec
++++ b/ffmpeg-kit-react-native.podspec
+@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
+ 
+   s.source       = { :git => "https://github.com/arthenica/ffmpeg-kit.git", :tag => "react.native.v#{s.version}" }
+ 
+-  s.default_subspec   = 'https'
++  s.default_subspec   = 'full-gpl'
+ 
+   s.dependency "React-Core"
+ 
