@@ -40,6 +40,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     bundleIdentifier: Env.BUNDLE_ID,
     infoPlist: {
       ITSAppUsesNonExemptEncryption: false,
+      NSPhotoLibraryUsageDescription: '需要存取相簿來儲存分割後的影片片段',
+      NSPhotoLibraryAddUsageDescription: '需要存取相簿來儲存分割後的影片片段',
+      NSCameraUsageDescription: '需要存取相機來錄製影片',
+      NSMicrophoneUsageDescription: '需要存取麥克風來錄製影片音訊',
+      NSDocumentsFolderUsageDescription: '需要存取文件夾來儲存分割後的影片',
     },
   },
   experiments: {
@@ -51,6 +56,13 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       backgroundColor: '#2E3C4B',
     },
     package: Env.PACKAGE,
+    permissions: [
+      'android.permission.WRITE_EXTERNAL_STORAGE',
+      'android.permission.READ_EXTERNAL_STORAGE',
+      'android.permission.READ_MEDIA_VIDEO',
+      'android.permission.READ_MEDIA_IMAGES',
+      'android.permission.READ_MEDIA_AUDIO',
+    ],
   },
   web: {
     favicon: './assets/favicon.png',
