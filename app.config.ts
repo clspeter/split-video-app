@@ -96,6 +96,14 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
           'https://github.com/NooruddinLakhani/ffmpeg-kit-full-gpl/releases/download/v1.0.0/ffmpeg-kit-full-gpl.aar',
       },
     ],
+    [
+      'expo-image-picker',
+      {
+        photosPermission:
+          '需要存取相簿來選擇要分割的影片和儲存分割後的影片片段',
+        preferredAssetRepresentationMode: 'current',
+      },
+    ],
   ],
   extra: {
     ...ClientEnv,

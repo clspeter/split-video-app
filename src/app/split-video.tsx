@@ -181,10 +181,11 @@ export default function SplitVideoScreen() {
       }
 
       const result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Videos,
+        mediaTypes: ['videos'],
         allowsEditing: false,
         quality: 1,
         videoMaxDuration: 0,
+        allowsMultipleSelection: false,
       });
 
       if (result.canceled) {
@@ -370,8 +371,11 @@ export default function SplitVideoScreen() {
                 大小: {(selectedVideo.size / 1024 / 1024).toFixed(2)} MB
               </UIText>
               <UIText className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-                總時長: {Math.floor(selectedVideo.duration / 60)}:
-                {(selectedVideo.duration % 60).toString().padStart(2, '0')}
+                總時長: {Math.floor(selectedVideo.duration / 60000)}:
+                {((selectedVideo.duration % 60000) / 1000)
+                  .toFixed(0)
+                  .toString()
+                  .padStart(2, '0')}
               </UIText>
             </View>
           ) : (
