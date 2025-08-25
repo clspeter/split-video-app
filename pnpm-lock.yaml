@@ -82,6 +82,9 @@ importers:
       expo-system-ui:
         specifier: ~5.0.11
         version: 5.0.11(expo@53.0.22(@babel/core@7.26.0)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0)))(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native-web@0.20.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0))
+      expo-video:
+        specifier: ~2.2.2
+        version: 2.2.2(expo@53.0.22(@babel/core@7.26.0)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0)))(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
       ffmpeg-kit-react-native:
         specifier: ^6.0.2
         version: 6.0.2(patch_hash=742d66facc1e6ada01264b51ca82c9679708cb1b9d13abfc4b415b8bb8e68fea)(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
@@ -3529,6 +3532,13 @@ packages:
     resolution: {integrity: sha512-DeB+fRe0hUDPZhpJ4X4bFMAItatFBUPjw/TVSbJsaf3Exeami+2qbbJhWkcTMoYHOB73nOIcaYcWXYJnCJXO0w==}
     peerDependencies:
       expo: '*'
+
+  expo-video@2.2.2:
+    resolution: {integrity: sha512-SJrW1CeiWO7WCaAVMbjqGlvOMJfU/x+d0g9izjsnEXdV/KE3NhuCI3Y/3zCcFiAoR+jrHEtlI8sPlkLx3dq8xw==}
+    peerDependencies:
+      expo: '*'
+      react: '*'
+      react-native: '*'
 
   expo@53.0.22:
     resolution: {integrity: sha512-sJ2I4W/e5iiM4u/wYCe3qmW4D7WPCRqByPDD0hJcdYNdjc9HFFFdO4OAudZVyC/MmtoWZEIH5kTJP1cw9FjzYA==}
@@ -11479,6 +11489,12 @@ snapshots:
   expo-updates-interface@1.1.0(expo@53.0.22(@babel/core@7.26.0)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0)))(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)):
     dependencies:
       expo: 53.0.22(@babel/core@7.26.0)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0)))(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+
+  expo-video@2.2.2(expo@53.0.22(@babel/core@7.26.0)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0)))(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0):
+    dependencies:
+      expo: 53.0.22(@babel/core@7.26.0)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0)))(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
+      react-native: 0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0)
 
   expo@53.0.22(@babel/core@7.26.0)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0)))(react-native@0.79.5(@babel/core@7.26.0)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0):
     dependencies:
