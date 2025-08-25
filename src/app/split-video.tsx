@@ -1,5 +1,5 @@
-import * as DocumentPicker from 'expo-document-picker';
 import * as FileSystem from 'expo-file-system';
+import * as ImagePicker from 'expo-image-picker';
 import * as MediaLibrary from 'expo-media-library';
 import { FFmpegKit, ReturnCode } from 'ffmpeg-kit-react-native';
 import React, { useCallback, useState } from 'react';
@@ -148,19 +148,21 @@ export default function SplitVideoScreen() {
       const hasPermission = await requestPermissions();
       if (!hasPermission) return;
 
-      const result = await DocumentPicker.getDocumentAsync({
-        type: 'video/*',
-        copyToCacheDirectory: true,
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ['videos'],
+        allowsEditing: false,
+        quality: 1,
+        videoMaxDuration: 0, // 無限制
       });
 
       if (result.canceled) return;
 
-      const file = result.assets[0];
-      if (file) {
+      const asset = result.assets[0];
+      if (asset) {
         setSelectedVideo({
-          uri: file.uri,
-          name: file.name || 'unknown',
-          size: file.size || 0,
+          uri: asset.uri,
+          name: asset.fileName || 'unknown',
+          size: asset.fileSize || 0,
         });
         setSplitResults([]);
       }
@@ -282,7 +284,7 @@ export default function SplitVideoScreen() {
           ) : (
             <View className="items-center rounded-lg border-2 border-dashed border-neutral-300 p-8 dark:border-neutral-600">
               <UIText className="mb-2 text-center text-neutral-500 dark:text-neutral-400">
-                點擊選擇影片檔案
+                點擊從相簿選擇影片
               </UIText>
               <UIText className="text-center text-sm text-neutral-400 dark:text-neutral-500">
                 支援 MP4, MOV, AVI 等格式
